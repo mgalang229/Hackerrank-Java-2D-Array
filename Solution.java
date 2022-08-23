@@ -22,12 +22,12 @@ public class Solution {
 			for (int i = 1; i < n - 1; i++) {
 				for (int j = 1; j < n - 1; j++) {
 					int sum = a[i][j];
-					sum += a[i-1][j-1];
-					sum += a[i-1][j];
-					sum += a[i-1][j+1];
-					sum += a[i+1][j-1];
-					sum += a[i+1][j];
-					sum += a[i+1][j+1];
+					for (int k = -1; k <= 1; k++) {
+						sum += a[i-1][j+k];
+					}
+					for (int k = -1; k <= 1; k++) {
+						sum += a[i+1][j+k];
+					}
 					max = Math.max(max, sum);
 				}
 			}
